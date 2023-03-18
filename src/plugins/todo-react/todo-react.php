@@ -25,6 +25,7 @@ class Todo
     {
         add_action('admin_menu', [$this, 'todo_admin_menu_init']);
         add_action('admin_enqueue_scripts', [$this, 'todo_include_scripts']);
+        add_action('rest_api_init', [$this, 'todo_create_rest_routes']);
     }
     public function todo_admin_menu_init()
     {
@@ -57,7 +58,54 @@ class Todo
             '1.0.0',
             true
         );
+
+        wp_localize_script(
+            'todo-react-script',
+            'appLocalizer',
+            [
+                'apiUrl' => home_url('/wp-json'),
+                'nonce' => wp_create_nonce(
+                    'wp_rest'
+                )
+            ]
+        );
     }
+
+    public function todo_create_rest_routes()
+    {
+        register_rest_route('todo-react/v1', '/set', [
+            'methods' => 'POST',
+            'callback' => [$this, 'set_data'],
+            'permission_callback' => function () {
+                return current_user_can('publish_posts');
+            }
+        ]);
+        register_rest_route('todo-react/v1', '/get', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_data'],
+            'permission_callback' => function () {
+                return true;
+            }
+        ]);
+    }
+
+    public function set_data($req)
+    {
+        update_option(
+            'todo_react',
+            $req['state']
+        );
+        return rest_ensure_response(
+            $req['state']
+        );
+    }
+    public function get_data()
+    {
+        return rest_ensure_response(
+            get_option('todo_react')
+        );
+    }
+
 }
 
 $todo = Todo::getInstance();

@@ -1,0 +1,196 @@
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/styles/main.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body,
+#todo-app {
+  height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#todo-app {
+  isolation: isolate;
+}
+
+#todo-app {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+small {
+  font-size: 12px;
+}
+
+button {
+  cursor: pointer;
+  min-height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-item-wrap {
+  padding: 1rem 2rem;
+  background-color: rgb(233, 172, 150);
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+}
+.task-item-wrap:hover {
+  background-color: rgb(189, 98, 65);
+  color: white;
+}
+.task-item-wrap.checked .task-txt {
+  text-decoration: line-through;
+}
+.task-item-wrap .task-txt {
+  font-weight: 600;
+}
+.task-item-wrap .btn-close {
+  background-color: #fff;
+  border-radius: 55px;
+  border: 0;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  transition: 0.2s;
+}
+.task-item-wrap .btn-close:hover {
+  background-color: #eeeeee;
+}
+
+.header {
+  border-radius: 0.5rem;
+  background-color: rgb(212, 142, 116);
+  padding: 1rem 2rem;
+}
+.header h2 {
+  color: white;
+}
+.header .input-wrap {
+  display: flex;
+  align-items: stretch;
+}
+.header .input-wrap input {
+  border: 0;
+  outline: 0;
+  flex: 1;
+  border-radius: 0;
+  margin: 0;
+}
+.header .input-wrap .btn-submit {
+  border: 0;
+  padding: 0 2rem;
+  background-color: rgb(156, 58, 22);
+  color: white;
+}
+
+#todo-app {
+  padding-inline: 2rem;
+  margin-top: 2rem;
+}
+
+/*# sourceMappingURL=index.css.map*/

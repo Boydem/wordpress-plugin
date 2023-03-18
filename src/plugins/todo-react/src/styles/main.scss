@@ -1,0 +1,14 @@
+@import './css-reset';
+@import './typography';
+@import './colors';
+@import './buttons';
+@import './task-item';
+@import './header';
+
+#todo-app {
+    padding-inline: 2rem;
+    // margin-inline: auto;
+    margin-top: 2rem;
+    .todo-body {
+    }
+}

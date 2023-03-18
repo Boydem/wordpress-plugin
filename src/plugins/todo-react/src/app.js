@@ -4,7 +4,7 @@ import { Todos } from './components/todos'
 export default function App() {
     return (
         <section className='app'>
-            <h1>Hello from App</h1>
+            <h5>Todos app built with React</h5>
             <Todos />
         </section>
     )
