@@ -6,7 +6,7 @@ To use this plugin, you will need to have Docker installed on your computer. Onc
 
 ## Clone this repository to your local machine.
 Navigate to the root directory of the repository in your terminal.
-```Run docker-compose up -d to start the Docker containers.```
+Run ```docker-compose up -d``` to start the Docker containers.
 
 Visit ``http://localhost:80/wp-admin`` in your web browser to access the WordPress dashboard.
 
