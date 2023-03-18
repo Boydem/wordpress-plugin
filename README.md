@@ -6,14 +6,11 @@ To use this plugin, you will need to have Docker installed on your computer. Onc
 
 ## Clone this repository to your local machine.
 Navigate to the root directory of the repository in your terminal.
-Run docker-compose up -d to start the Docker containers.
+```Run docker-compose up -d to start the Docker containers.```
 
-``Visit http://localhost:8080/wp-admin in your web browser to access the WordPress dashboard.``
+Visit ``http://localhost:80/wp-admin`` in your web browser to access the WordPress dashboard.
 
-Activate the "WordPress React Plugin" in the plugins section of the dashboard.
-Create a new page or post and use the [react_component] shortcode to add your React component to the page.
-Development
-If you want to develop the plugin further, you can run the following command to start a development server:
+Activate the "Todo React Plugin" in the plugins section of the dashboard.
 
 ## Copy code
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
