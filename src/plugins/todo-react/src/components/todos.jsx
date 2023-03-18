@@ -37,6 +37,7 @@ export function Todos() {
     }
 
     const handleSubmit = () => {
+        if (!taskName) return
         const newTodo = {
             id: utilService.makeId(),
             txt: taskName,
@@ -67,12 +68,12 @@ export function Todos() {
         <section className='todos'>
             <div className='header'>
                 <h2>My Todo List</h2>
-                <div className='input-wrap'>
+                <form onSubmit={handleSubmit} className='input-wrap'>
                     <input value={taskName} onChange={handleChange} placeholder='Add todo' type='text' name='txt' />
-                    <button onClick={handleSubmit} className='btn-submit'>
+                    <button type='button' onClick={handleSubmit} className='btn-submit' disabled={taskName === ''}>
                         Add
                     </button>
-                </div>
+                </form>
             </div>
             <ul className='todo-body'>
                 {todos.length ? (

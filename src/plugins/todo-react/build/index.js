@@ -113,6 +113,7 @@ function Todos() {
     setTaskName(value);
   };
   const handleSubmit = () => {
+    if (!taskName) return;
     const newTodo = {
       id: _services_util_service__WEBPACK_IMPORTED_MODULE_4__.utilService.makeId(),
       txt: taskName,
@@ -150,7 +151,8 @@ function Todos() {
     className: "todos"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "header"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "My Todo List"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "My Todo List"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    onSubmit: handleSubmit,
     className: "input-wrap"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
     value: taskName,
@@ -159,8 +161,10 @@ function Todos() {
     type: "text",
     name: "txt"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "button",
     onClick: handleSubmit,
-    className: "btn-submit"
+    className: "btn-submit",
+    disabled: taskName === ''
   }, "Add"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
     className: "todo-body"
   }, todos.length ? todos.map(todo => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {

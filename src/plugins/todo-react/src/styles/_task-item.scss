@@ -12,6 +12,7 @@
         color: white;
     }
     &.checked {
+        background-color: rgb(150, 183, 233);
         .task-txt {
             text-decoration: line-through;
         }

@@ -128,6 +128,10 @@ button {
   justify-content: center;
   align-items: center;
 }
+button:disabled {
+  cursor: not-allowed;
+  background-color: gray;
+}
 
 .task-item-wrap {
   padding: 1rem 2rem;
@@ -142,6 +146,9 @@ button {
 .task-item-wrap:hover {
   background-color: rgb(189, 98, 65);
   color: white;
+}
+.task-item-wrap.checked {
+  background-color: rgb(150, 183, 233);
 }
 .task-item-wrap.checked .task-txt {
   text-decoration: line-through;
@@ -190,6 +197,7 @@ button {
 
 #todo-app {
   padding-inline: 2rem;
+  max-width: 600px;
   margin-top: 2rem;
 }
 
