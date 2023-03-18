@@ -1,0 +1,50 @@
+version: '3.9'
+
+services:
+
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_HOST: $WORDPRESS_DB_HOST
+      WORDPRESS_DB_USER: $WORDPRESS_DB_USER
+      WORDPRESS_DB_PASSWORD: $WORDPRESS_DB_PASSWORD
+      WORDPRESS_DB_NAME: mysql_db
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./apache-logs:/var/log/apache2
+      - ./config/uploads.ini:/usr/local/etc/php/php.ini
+      - ./config/php-apache.conf:/etc/apache2/site-enabled/000-default.conf
+      # themes and plugins
+      - ./src/plugins/classic-editor:/var/www/html/wp-content/plugins/classic-editor
+      - ./src/plugins/todo-react:/var/www/html/wp-content/plugins/todo-react
+      - ./src/themes/hello-elementor:/var/www/html/wp-content/themes/hello-elementor
+
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: mysql_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - ./db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8881:80
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+
+volumes:
+  wordpress:
+  db:
